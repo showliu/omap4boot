@@ -9,7 +9,7 @@
 ##    notice, this list of conditions and the following disclaimer.
 ##  * Redistributions in binary form must reproduce the above copyright
 ##    notice, this list of conditions and the following disclaimer in
-##    the documentation and/or other materials provided with the 
+##    the documentation and/or other materials provided with the
 ##    distribution.
 ##
 ## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -19,7 +19,7 @@
 ## COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
 ## INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
 ## BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-## OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+## OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
 ## AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 ## OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 ## OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
@@ -29,7 +29,8 @@ what_to_build:: all
 
 -include local.mk
 
-TOOLCHAIN ?= arm-eabi-
+#TOOLCHAIN ?= arm-eabi-
+TOOLCHAIN ?= $(CROSS_COMPILE)
 
 BOARD ?= panda
 
@@ -73,7 +74,7 @@ include build/host-executable.mk
 M_NAME := aboot
 M_BASE := 0x40309000
 M_OBJS := arch/omap4/start.o
-M_OBJS += arch/omap4/serial.o 
+M_OBJS += arch/omap4/serial.o
 M_OBJS += arch/omap4/clock.o
 M_OBJS += arch/omap4/sdram.o
 M_OBJS += arch/omap4/gpmc.o
@@ -81,10 +82,10 @@ M_OBJS += arch/omap4/gpio.o
 M_OBJS += arch/omap4/id.o
 M_OBJS += arch/omap4/rom_usb.o
 M_OBJS += board_$(BOARD).o
-M_OBJS += libc/printf.o 
+M_OBJS += libc/printf.o
 M_OBJS += libc/strlen.o libc/memset.o libc/memcpy.o
 M_OBJS += libc/raise.o
-M_OBJS += aboot.o 
+M_OBJS += aboot.o
 M_OBJS += trusted.o
 M_OBJS += boot.o
 M_OBJS += misc.o
